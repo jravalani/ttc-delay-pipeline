@@ -19,3 +19,22 @@ models:
           - accepted_values:
               arguments:
                 values: ['YU', 'BD', 'SHP', 'OTHER']
+  - name: mart_station_monthly_delays
+    description: "Aggregated monthly delay statistics by station"
+    columns:
+      - name: cleaned_station
+        description: "Cleaned station name for aggregation"
+        tests:
+          - not_null
+      - name: month
+        description: "Month of the delay occurrence"
+        tests:
+          - not_null
+      - name: incidents
+        description: "Total number of recorded incidents including those with zero delay"
+        tests:
+          - not_null
+      - name: total_delay_minutes
+        description: "Total delay time in minutes for the month"
+        tests:
+          - not_null
