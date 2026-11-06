@@ -1,0 +1,21 @@
+version: 2
+
+models:
+  - name: stg_ttc_delays
+    description: "Staging model for TTC delays"
+    columns:
+      - name: id
+        description: "Unique identifier for each delay record"
+        tests:
+          - unique
+          - not_null
+      - name: occurred_at
+        description: "Timestamp when the delay occurred"
+        tests:
+          - not_null
+      - name: line_group
+        description: "Grouped line identifier for the delay"
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['YU', 'BD', 'SHP', 'OTHER']
