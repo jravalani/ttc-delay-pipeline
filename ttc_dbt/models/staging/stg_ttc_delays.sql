@@ -9,5 +9,5 @@ min_delay,
 min_gap,
 bound,
 CASE WHEN line IN ('YU', 'BD', 'SHP') THEN line ELSE 'OTHER' END AS line_group, 
-vehicle_id
+NULLIF(vehicle_id, 0) AS vehicle_id
 FROM {{ source('raw', 'ttc_delay_since_2025') }}
